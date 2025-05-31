@@ -2,11 +2,11 @@
 
 ### 1. Terminal Screen Output 🖥️
 
-![Screen Output](Day2/snapshots/screen-output.png)
+![Screen Output](Day_2/snapshots/screen-output.png)
 
 ---
 
 ### 2. Log File Output 📄
 
-![Log File Output](Day2/snapshots/logfile.png)
+![Log File Output](Day_2/snapshots/logfile.png)
 
