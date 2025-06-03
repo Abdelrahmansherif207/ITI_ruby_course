@@ -1,0 +1,36 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# == Schema Information
+#
+# Table name: articles
+#
+#  id            :integer          not null, primary key
+#  body          :text
+#  reports_count :integer
+#  status        :string
+#  title         :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  user_id       :integer          not null
+#
+# Indexes
+#
+#  index_articles_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  user_id  (user_id => users.id)
+#
+one:
+  title: MyString
+  body: MyText
+  user: one
+  reports_count: 1
+  status: MyString
+
+two:
+  title: MyString
+  body: MyText
+  user: two
+  reports_count: 1
+  status: MyString

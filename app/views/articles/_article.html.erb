@@ -1,0 +1,18 @@
+<div id="<%= dom_id article %>" class="card mb-4">
+  <% if article.image.attached? %>
+    <div class="card-img-top text-center p-3">
+      <%= image_tag article.image, class: "img-fluid rounded", style: "max-height: 200px;" %>
+    </div>
+  <% end %>
+
+  <div class="card-body">
+    <h5 class="card-title"><%= article.title %></h5>
+    <p class="card-text"><%= truncate(article.body, length: 150) %></p>
+    
+    <div class="text-muted mb-2">
+      <small>Posted by: <%= article.user.email %></small>
+    </div>
+
+    <%= link_to "Read more", article, class: "btn btn-primary" %>
+  </div>
+</div>

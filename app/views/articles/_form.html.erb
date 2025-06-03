@@ -1,0 +1,58 @@
+<%= form_with(model: article, class: "needs-validation", local: true) do |form| %>
+  <% if article.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <ul>
+        <% article.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :body, class: "form-label" %>
+    <%= form.text_area :body, class: "form-control", rows: 5 %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :image, class: "form-label" %>
+    <%= form.file_field :image, class: "form-control", onchange: "previewImage(event)" %>
+  </div>
+
+  <% if article.image.attached? %>
+    <div class="mb-3">
+      <label class="form-label">Current Image:</label>
+      <%= image_tag article.image, class: "img-thumbnail", id: "current-image" %>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <img id="image-preview" class="img-thumbnail d-none" style="max-width: 300px;">
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to "Back", articles_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>
+
+<script>
+  function previewImage(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById('image-preview');
+    
+    if (file) {
+      preview.src = URL.createObjectURL(file);
+      preview.classList.remove('d-none');
+    } else {
+      preview.src = '';
+      preview.classList.add('d-none');
+    }
+  }
+</script>
